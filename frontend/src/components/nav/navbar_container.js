@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import NavBar from './navbar';
 import { openModal } from "../../actions/modal_actions";
 import {logout} from "../../actions/session_actions"
+import {withRouter} from "react-router-dom"
 
 const mapStateToProps = state => ({
 	// Grabbing current user from session slice of state to greet dynamically if logged in
@@ -14,4 +15,4 @@ const mapDispatchToProps = dispatch => ({
 	logout: () => dispatch(logout())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));

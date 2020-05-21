@@ -9,11 +9,19 @@ class NavBar extends React.Component {
 	}
 
 	render() {
+		console.log(this.props);
 		return (
 			<div className="navbar-container">
 				<div className="navbar-left">
 					<img src={logo} className="nav-logo" />
 					<div className="navbar-logo-main">FoodHarmony</div>
+					{this.props.location.pathname === "/index" && (
+						<input
+							className="navbar-search"
+							type="text"
+							value="SEARCH..."
+						/>
+					)}
 				</div>
 				<div className="navbar-right">
 					<Link to="/about" className="navbar-about-link">
@@ -23,14 +31,13 @@ class NavBar extends React.Component {
 						<button
 							className="navbar-login"
 							onClick={() => {
-								this.props.logout()
-							}
-							}
+								this.props.logout();
+							}}
 						>
 							LOG OUT
 						</button>
 					) : (
-							<>
+						<>
 							<button
 								className="navbar-login"
 								onClick={() =>
@@ -47,8 +54,8 @@ class NavBar extends React.Component {
 							>
 								GET STARTED
 							</button>
-							</>
-						)}
+						</>
+					)}
 				</div>
 			</div>
 		);
